@@ -1,0 +1,36 @@
+[package]
+name = "liquidation_monitor"
+version = "0.1.0"
+edition = "2018"
+
+[lib]
+name = "liquidation_monitor"
+
+[[test]]
+name = "integration"
+path = "tests/integration.rs"
+
+[dependencies]
+anyhow = "1.0"
+async-trait = "0.1.51"
+cached = "0.25"
+chrono = { version = "0.4", features = ["serde"] }
+cynic = { version = "0.15", features = ["surf"] }
+futures = "0.3"
+itertools = "0.10"
+rocket = { version = "0.5.0-rc.1", features = ["json"] }
+rust_decimal = "1.16"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+strum = "0.21"
+strum_macros = "0.21"
+surf = "2.1"
+tokio = { version = "1.0.0", default-features = false, features = ["io-std", "macros", "net", "rt-multi-thread", "time", "io-util", "sync"] }
+tracing = "0.1"
+tracing-subscriber = "0.2"
+tungstenite = { version = "0.14", features = ["rustls-tls"]}
+url = "2.0.0"
+serde_path_to_error = "0.1"
+
+[profile.release]
+lto = true
